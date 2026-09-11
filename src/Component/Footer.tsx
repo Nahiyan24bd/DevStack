@@ -1,6 +1,3 @@
-import React from 'react';
-import logo from '../assets/logo-text.png'; // আপনার ইমেজ লোগো থাকলে ব্যবহার করতে পারেন
-
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-200 pt-12 md:pt-16 pb-8">
@@ -9,10 +6,10 @@ const Footer = () => {
         {/* Top Section: Brand & Links */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
           
-          {/* Brand Block: মোবাইলে সেন্টারে থাকবে, বড় স্ক্রিনে বামে */}
+          {/* Brand Block */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <a href="#home" className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-fuchsia-600 via-pink-600 to-purple-600 flex items-center justify-center text-white text-xs font-black shadow-sm tracking-tight">
+              <span className="w-8 h-8 rounded-xl `bg-gradient-to-tr` from-fuchsia-600 via-pink-600 to-purple-600 flex items-center justify-center text-white text-xs font-black shadow-sm tracking-tight">
                 DS
               </span>
               <span className="text-xl font-bold text-slate-900 tracking-tight">
@@ -32,7 +29,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Link Columns: মোবাইলে ২ কলাম (grid-cols-2), ট্যাবলেটে ৩ কলাম */}
+          
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:col-span-7">
             
             {/* Product */}
