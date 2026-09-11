@@ -3,6 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import type { TechnologyItem, TechnologyProps } from '../Types/TechnologisType';
 
+// Single source of truth for the shared brand gradient (Orange -> Pink -> Violet)
+export const BRAND_GRADIENT = "from-amber-500 via-rose-500 to-purple-600";
+export const BRAND_TEXT_GRADIENT = `bg-gradient-to-r ${BRAND_GRADIENT} bg-clip-text text-transparent`;
+
 const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
   const [selectedStack, setSelectedStack] = useState<TechnologyItem[]>([]);
 
@@ -40,11 +44,11 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Heading */}
+        {/* Section Heading with Centralized Gradient */}
         <div className="mb-10 text-left">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Explore the{' '}
-            <span className="`bg-gradient-to-r` from-fuchsia-600 to-pink-500 bg-clip-text text-transparent">
+            <span className={BRAND_TEXT_GRADIENT}>
               Technologies
             </span>
           </h2>
@@ -66,7 +70,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                   key={tech.id}
                   className={`flex flex-col justify-between p-6 bg-white rounded-3xl transition-all duration-200 ${
                     isAdded
-                      ? 'border-2 border-pink-400 shadow-sm shadow-pink-100'
+                      ? 'border-2 border-rose-400 shadow-sm shadow-rose-100'
                       : 'border border-slate-100 shadow-sm hover:shadow-md'
                   }`}
                 >
@@ -85,14 +89,14 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                           }}
                         />
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-pink-50/70 text-pink-500 border border-pink-100">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-600 border border-rose-100">
                         {tech.badge}
                       </span>
                     </div>
 
                     {/* Title & Description */}
                     <h3 className="mt-4 text-xl font-bold text-slate-900">{tech.name}</h3>
-                    <p className="mt-2 `min-h-[48px] `text-xs leading-relaxed text-slate-500">
+                    <p className="mt-2 `min-h-[48px]` text-xs leading-relaxed text-slate-500">
                       {tech.description}
                     </p>
 
@@ -116,7 +120,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                     disabled={isAdded}
                     className={`mt-6 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 ${
                       isAdded
-                        ? 'bg-[#FDF2F4] text-[#BE185D] border border-pink-200/60 cursor-default font-medium'
+                        ? 'bg-rose-50 text-rose-600 border border-rose-200 cursor-default font-medium'
                         : 'bg-slate-950 hover:bg-slate-800 text-white shadow-sm active:scale-[0.98]'
                     }`}
                   >
@@ -190,7 +194,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                 <button
                   type="button"
                   onClick={handleRemoveAll}
-                  className="mt-6 w-full py-2.5 px-4 rounded-xl border border-rose-300 text-rose-500 hover:bg-rose-50/70 active:scale-[0.98] text-sm font-semibold transition-all duration-150"
+                  className="mt-6 w-full py-2.5 px-4 rounded-xl border border-rose-300 text-rose-500 hover:bg-rose-50 active:scale-[0.98] text-sm font-semibold transition-all duration-150"
                 >
                   Remove All
                 </button>
