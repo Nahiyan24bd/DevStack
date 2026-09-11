@@ -29,7 +29,6 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
 
   return (
     <section id="technologies" className="py-12 md:py-16 bg-[#FAFAFA] min-h-screen">
-      {/* ToastContainer Dowen left */}
       <ToastContainer
         position="bottom-right"
         autoClose={2000}
@@ -45,7 +44,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
         <div className="mb-10 text-left">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Explore the{' '}
-            <span className="bg-linear-to-r from-fuchsia-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="`bg-gradient-to-r` from-fuchsia-600 to-pink-500 bg-clip-text text-transparent">
               Technologies
             </span>
           </h2>
@@ -54,10 +53,10 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
           </p>
         </div>
 
-        {/* Main Content Layout: Grid (Left) + Sidebar (Right) */}
+        {/* Main Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Technology Cards Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
+          {/* Technology Cards Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {techData.map((tech) => {
               const isAdded = selectedStack.some((item) => item.id === tech.id);
@@ -65,7 +64,11 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
               return (
                 <div
                   key={tech.id}
-                  className="flex flex-col justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200"
+                  className={`flex flex-col justify-between p-6 bg-white rounded-3xl transition-all duration-200 ${
+                    isAdded
+                      ? 'border-2 border-pink-400 shadow-sm shadow-pink-100'
+                      : 'border border-slate-100 shadow-sm hover:shadow-md'
+                  }`}
                 >
                   <div>
                     {/* Top Row: Icon + Badge */}
@@ -82,14 +85,14 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                           }}
                         />
                       </div>
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-600 border border-sky-100">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-pink-50/70 text-pink-500 border border-pink-100">
                         {tech.badge}
                       </span>
                     </div>
 
                     {/* Title & Description */}
                     <h3 className="mt-4 text-xl font-bold text-slate-900">{tech.name}</h3>
-                    <p className="mt-2 min-h-12 text-xs leading-relaxed text-slate-500">
+                    <p className="mt-2 `min-h-[48px] `text-xs leading-relaxed text-slate-500">
                       {tech.description}
                     </p>
 
@@ -113,7 +116,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                     disabled={isAdded}
                     className={`mt-6 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 ${
                       isAdded
-                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200'
+                        ? 'bg-[#FDF2F4] text-[#BE185D] border border-pink-200/60 cursor-default font-medium'
                         : 'bg-slate-950 hover:bg-slate-800 text-white shadow-sm active:scale-[0.98]'
                     }`}
                   >
@@ -137,12 +140,10 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
               {/* Stack Items List */}
               <div className="mt-6 space-y-3">
                 {selectedStack.length === 0 ? (
-                  /* Empty State */
                   <div className="border border-dashed border-slate-200 rounded-xl py-9 px-4 text-center">
                     <p className="text-sm font-medium text-slate-400">Your stack is empty.</p>
                   </div>
                 ) : (
-                  /* Added Items */
                   selectedStack.map((item) => (
                     <div
                       key={item.id}
@@ -169,7 +170,6 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                         </div>
                       </div>
 
-                      {/* Remove Single Item Button */}
                       <button
                         type="button"
                         onClick={() => handleRemoveItem(item)}
