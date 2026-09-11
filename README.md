@@ -72,6 +72,7 @@ An interactive web workspace for developers to discover, organize, and assemble 
   selectedStack.map((item) => <div key={item.id}>{item.name}</div>)
 )}
 
+```
 ---
 
 ### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
