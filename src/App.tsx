@@ -3,6 +3,7 @@ import Nav from './Component/Nav';
 import Banner from './Component/Banner';
 import Technology from './Component/Technology';
 import type { TechnologyItem } from './Types/TechnologisType';
+import Footer from './Component/Footer';
 
 function App() {
   const [techData, setTechData] = useState<TechnologyItem[]>([]);
@@ -39,6 +40,7 @@ function App() {
       ) : (
         <Technology techData={techData} />
       )}
+      <Footer />
     </>
   );
 }
