@@ -1,3 +1,6 @@
+
+import logo from '../assets/logo-text.png';
+
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-200 pt-12 md:pt-16 pb-8">
@@ -9,12 +12,11 @@ const Footer = () => {
           {/* Brand Block */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <a href="#home" className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-xl `bg-gradient-to-tr` from-fuchsia-600 via-pink-600 to-purple-600 flex items-center justify-center text-white text-xs font-black shadow-sm tracking-tight">
-                DS
-              </span>
-              <span className="text-xl font-bold text-slate-900 tracking-tight">
-                Dev<span className="text-[#E11D48]">Stack</span>
-              </span>
+              <img 
+                src={logo} 
+                alt="DevStack Logo" 
+                className="h-7 sm:h-8 w-auto object-contain" 
+              />
             </a>
             
             <p className="mt-4 text-sm text-slate-500 leading-relaxed max-w-sm">

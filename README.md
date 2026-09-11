@@ -71,3 +71,11 @@ An interactive web workspace for developers to discover, organize, and assemble 
 ) : (
   selectedStack.map((item) => <div key={item.id}>{item.name}</div>)
 )}
+
+---
+
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+* **Parent to Child:** The parent passes data down as attributes called props (e.g., <Technology techData="{techData}"/>), and the child receives them via its function parameters.
+
+* **Child to Parent:** The parent passes a callback function to the child as a prop. When an event happens (like clicking a button), the child invokes that function and sends data back inside its arguments.
