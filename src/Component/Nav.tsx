@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/logo-text.png';
-
+import { HiMenu, HiX } from 'react-icons/hi';
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,25 +20,19 @@ const Nav = () => {
 
           {/* LEFT: Mobile Hamburger Menu Icon / Desktop Brand */}
           <div className="flex items-center">
-            {/* Mobile Hamburger */}
+            {/* Mobile Hamburger Button using react-icons */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 -ml-1.5 rounded-lg text-slate-700 hover:bg-slate-100 transition md:hidden"
+              className="p-1.5 -ml-1.5 rounded-lg text-slate-700 hover:bg-slate-100 transition text-2xl md:hidden"
               aria-label="Toggle navigation"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isOpen ? <HiX /> : <HiMenu />}
             </button>
 
             {/* Desktop Brand Logo */}
             <a href="#home" className="hidden md:flex items-center gap-2.5">
-              <img src={logo} alt="DevStack Logo" />
+              <img src={logo} alt="DevStack Logo" className="h-8 w-auto object-contain" />
             </a>
           </div>
 
@@ -47,7 +40,7 @@ const Nav = () => {
           {/* Mobile Center Brand */}
           <div className="flex md:hidden items-center justify-center">
             <a href="#home" className="flex items-center gap-2">
-              <img src={logo} alt="DevStack Logo" />
+              <img src={logo} alt="DevStack Logo" className="h-7 w-auto object-contain" />
             </a>
           </div>
 

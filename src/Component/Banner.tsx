@@ -1,4 +1,3 @@
-import React from 'react';
 import banner from '../assets/banner-stack.png';
 
 const Banner = () => {
@@ -11,7 +10,7 @@ const Banner = () => {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
               Build Your Ideal{' '}
-              <span className="block mt-1 bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">
+              <span className="block mt-1 bg-linear-to-r from-[#F97316] via-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">
                 Development Stack
               </span>
             </h1>
@@ -23,7 +22,7 @@ const Banner = () => {
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#technologies"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#F97316] to-[#E11D48] hover:opacity-95 shadow-md shadow-pink-500/20 active:scale-95 transition-all duration-150"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white bg-linear-to-r from-[#F97316] to-[#E11D48] hover:opacity-95 shadow-md shadow-pink-500/20 active:scale-95 transition-all duration-150"
               >
                 Explore Technologies
               </a>
