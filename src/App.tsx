@@ -1,16 +1,12 @@
 import Nav from './Component/Nav'
+import Banner from './Component/Banner'
 
 function App() {
   return (
     <>
 
     <Nav />
-    
-      <div className="ticks">
-        
-        <h1>Hello Nahiyan</h1>
-      </div>
-
+    <Banner />
 
 
     </>
