@@ -7,6 +7,24 @@ import type { TechnologyItem, TechnologyProps } from '../Types/TechnologisType';
 export const BRAND_GRADIENT = "from-amber-500 via-rose-500 to-purple-600";
 export const BRAND_TEXT_GRADIENT = `bg-gradient-to-r ${BRAND_GRADIENT} bg-clip-text text-transparent`;
 
+// Helper function to dynamically color badges according to reference design
+const getBadgeColor = (badge: string) => {
+  const b = badge?.toLowerCase() || '';
+  if (b.includes('popular') || b.includes('sql') || b.includes('essential')) {
+    return 'bg-sky-50 text-sky-600 border-sky-100';
+  }
+  if (b.includes('versatile') || b.includes('standard') || b.includes('runtime')) {
+    return 'bg-emerald-50 text-emerald-600 border-emerald-100';
+  }
+  if (b.includes('fast') || b.includes('ubiquitous')) {
+    return 'bg-amber-50 text-amber-600 border-amber-100';
+  }
+  if (b.includes('cache') || b.includes('enterprise') || b.includes('fullstack')) {
+    return 'bg-rose-50 text-rose-600 border-rose-100';
+  }
+  return 'bg-purple-50 text-purple-600 border-purple-100';
+};
+
 const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
   const [selectedStack, setSelectedStack] = useState<TechnologyItem[]>([]);
 
@@ -75,7 +93,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                   }`}
                 >
                   <div>
-                    {/* Top Row: Icon + Badge */}
+                    {/* Top Row: Icon + Badge with Dynamic Colors */}
                     <div className="flex items-center justify-between">
                       <div className="w-11 h-11 flex items-center justify-center p-1.5 rounded-xl bg-slate-50 border border-slate-100">
                         <img
@@ -89,7 +107,7 @@ const Technology: React.FC<TechnologyProps> = ({ techData = [] }) => {
                           }}
                         />
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-600 border border-rose-100">
+                      <span className={`px-3 py-1 rounded-full text-[11px] font-semibold border ${getBadgeColor(tech.badge)}`}>
                         {tech.badge}
                       </span>
                     </div>
